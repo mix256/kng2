@@ -1,0 +1,66 @@
+<project name="KnG2" default="run-game">
+	<property file="build.properties"/>
+	
+	<target name="all" depends="asm-game, asm-title, asm-ending, exomize-code-title, exomize-code-game, exomize-code-ending">
+	</target>	
+
+	<target name="asm-game">
+		<exec executable="java" failonerror="true">
+			<arg line="-jar ${buildenv.dir}/KickAss.jar"/>
+			<arg line="-showmem"/>
+			<arg line="${build.main.file}.asm"/>
+			<arg line="-o bin/game.prg"/>
+		</exec>
+	</target>
+	<target name="exomize-code-game"  depends="asm-game">
+		<exec executable="${buildenv.dir}/exomizer">
+			<arg value="sfx" />
+			<arg value="sys" />
+			<arg value="bin/game.prg" />
+			<arg value="-obin\kng2exo.prg"/>
+		</exec>
+	</target>
+
+	<target name="asm-title" />
+	<target name="asm-ending" />
+	<target name="exomize-code-title" />
+	<target name="exomize-code-ending" />
+
+	<target name="run-game" depends="generate-adders, asm-game">
+		<exec executable="${emulator.home}/ccs64.exe">
+			<arg value="${basedir}\bin\game.prg" />
+			<arg value="-autorun"/>
+		</exec>
+	</target>
+	<target name="run-exomized-game" depends="exomize-code-game">
+		<exec executable="${emulator.home}/ccs64.exe">
+			<arg value="${basedir}\bin\kng2exo.prg" />
+			<arg value="-autorun"/>
+		</exec>
+	</target>
+
+	<target name="run-title" depends="asm-title">
+	</target>
+
+	<target name="run-ending" depends="asm-ending">
+	</target>
+	
+	<target name="clean">
+		<delete dir="bin"/>
+		<mkdir dir="bin"/>
+	</target>
+
+	<target name="generate-adders">
+		<ant antfile="Tasks/tasks.xml" target="adders"/>
+	</target>
+
+	<target name="generate-tiles">
+		<ant antfile="Tasks/tasks.xml" target="create-map-and-chars"/>
+	</target>
+	
+	<target name="generate-sprites">
+		<ant antfile="Tasks/tasks.xml" target="sprites"/>
+	</target>
+	
+</project>
+	

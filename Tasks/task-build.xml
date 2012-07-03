@@ -1,0 +1,24 @@
+<project name="tasks" default="all">
+
+	<target name="all" depends="compile">
+		<jar jarfile="dist/tasks.jar">
+			<fileset dir="resources">
+				<include name="taskdefs.properties"/>
+			</fileset>
+			<fileset dir="bin">
+				<include name="**/*.class"/>
+			</fileset>
+		</jar>		
+	</target>
+
+	<target name="compile">
+		<property environment="env" />
+		<echo message="JAVA_HOME	= ${env.JAVA_HOME}" />
+		<javac srcdir="src" destdir="bin"
+			   failonerror="true">
+		</javac>
+
+		
+	</target>
+
+</project>

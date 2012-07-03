@@ -1,0 +1,5 @@
+
+OBJECT_EXPLOSION		= "src/game/objects/common/explosion.asm"
+OBJECT_TRANSPORTER		= "src/game/objects/common/transporter.asm"
+OBJECT_ENEMYBULLET		= "src/game/objects/common/enemybullet.asm"
+OBJECT_PHOENIX			= "src/game/objects/common/phoenix.asm"

@@ -1,0 +1,10 @@
+
+OBJECT_STONEFACE		= "src/game/objects/enemies/stoneface.asm"
+OBJECT_PILLAR			= "src/game/objects/enemies/pillar.asm"
+OBJECT_LIZ				= "src/game/objects/enemies/liz.asm"
+OBJECT_BIGFACE			= "src/game/objects/enemies/bigface.asm"
+OBJECT_LARGEPILLAR		= "src/game/objects/enemies/largepillar.asm"
+OBJECT_DROP				= "src/game/objects/enemies/drop.asm"
+OBJECT_JELLY			= "src/game/objects/enemies/jelly.asm"
+OBJECT_CAGE_LOCK		= "src/game/objects/enemies/lock.asm"
+OBJECT_EYE				= "src/game/objects/enemies/eye.asm"

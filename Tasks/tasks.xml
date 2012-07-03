@@ -1,0 +1,37 @@
+<project name="mobile_build_tools-build" basedir="../">
+
+ 	<target name="create-map-and-chars">
+		<taskdef resource="taskdefs.properties" classpath="${basedir}/Tasks/dist/tasks.jar"/>
+		<png2chars inputfile="${basedir}/resources/graphics/bkg/room_0"
+					outputfile = "${basedir}/resources/graphics/generated/w0"/>
+		<png2chars inputfile="${basedir}/resources/graphics/bkg/room_1"
+					outputfile = "${basedir}/resources/graphics/generated/w1"/>
+	</target>
+
+ 	<target name="sprites">
+		<taskdef resource="taskdefs.properties" classpath="${basedir}/Tasks/dist/tasks.jar"/>
+		<sprites inputfile="${basedir}/resources/graphics/sprites/sprites_main.png"
+ 					outputfile="${basedir}/resources/graphics/generated/sprites/main.bin"/>
+		
+		<sprites inputfile="${basedir}/resources/graphics/sprites/sprites_enemies_w0.png"
+ 					outputfile="${basedir}/resources/graphics/generated/sprites/w0.bin"/>
+ 		<sprites inputfile="${basedir}/resources/graphics/sprites/sprites_enemies_w1.png"
+ 					outputfile="${basedir}/resources/graphics/generated/sprites/w1.bin"/>
+ 	</target>
+	
+ 	<target name="font16">
+		<taskdef resource="taskdefs.properties" classpath="${basedir}/Tasks/dist/tasks.jar"/>
+ 		<font16 inputfile="${basedir}/resources/graphics/font/font16.png"
+ 					outputfile="${basedir}/resources/graphics/generated/fonts/font16.bin"/>
+ 	</target>	
+
+ 	<target name="adders">
+ 		<echo message="${basedir}/Tasks/dist/tasks.jar" />
+		<taskdef resource="taskdefs.properties" classpath="${basedir}/Tasks/dist/tasks.jar"/>
+ 		<adder inputfile="${basedir}/resources/objects"
+ 				worldname="w0"
+ 					outputdir="${basedir}/src/generated"/>
+ 	</target>	
+
+</project>
+
